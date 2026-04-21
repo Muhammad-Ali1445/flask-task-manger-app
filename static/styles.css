@@ -1,0 +1,246 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body */
+body {
+    background-color: #f4f6f9;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Form Container */
+form {
+    background: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Center the Heading as well */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #222;
+}
+
+/* Labels */
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Inputs & Select */
+input,
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: 0.2s ease;
+}
+
+input:focus,
+select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Button */
+.create-btn {
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.create-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Link */
+a {
+    display: inline-block;
+    margin-bottom: 15px;
+    text-decoration: none;
+    color: #007bff;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    margin-top: 10px;
+}
+
+th {
+    background-color: #f8f9fa;
+    color: #555;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid #edf2f7;
+}
+
+td {
+    padding: 16px;
+    color: #4a5568;
+    vertical-align: middle;
+    border-bottom: 1px solid #edf2f7;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr:hover {
+    background-color: #f8fbff;
+}
+
+.task-title {
+    font-weight: 600;
+    color: #2d3748;
+}
+
+/* Status Badges */
+.status-badge {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.pending {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.in_progress {
+    background: #cce5ff;
+    color: #004085;
+}
+
+.completed {
+    background: #d4edda;
+    color: #155724;
+}
+
+/* Refined Delete Button */
+.delete-btn {
+    margin-top: 0;
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    background-color: #fff;
+    color: #dc3545;
+    border: 1px solid #dc3545;
+}
+
+/* Add Task Button Container */
+.add-btn {
+    background-color: #007bff;
+    border: none;
+    border-radius: 6px;
+    padding: 0;
+    /* Remove padding here so the link can fill the space */
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    margin-bottom: 20px;
+    display: inline-block;
+    box-shadow: 0 2px 5px rgba(0, 123, 255, 0.2);
+}
+
+/* Style the link inside the button */
+.add-btn a {
+    display: block;
+    padding: 10px 20px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+/* Hover & Active States */
+.add-btn:hover {
+    background-color: #0056b3;
+}
+
+.add-btn:active {
+    transform: translateY(1px);
+    /* Slight click effect */
+}
+
+/* Ensure the link doesn't get underlined on hover since it's a button */
+.add-btn a:hover {
+    text-decoration: none;
+}
+
+.edit-btn {
+    text-decoration: none;
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 4px;
+    margin-right: 5px;
+}
+
+.delete-btn:hover {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+/* Table Header Styling */
+thead {
+    background-color: #f8f9fa;
+    /* Light grey background */
+}
+
+thead tr th {
+    padding: 15px 12px;
+    text-align: left;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    /* Professional, "admin-panel" look */
+    letter-spacing: 0.05em;
+    color: #5a6a85;
+    /* Soft dark blue/grey */
+    border-bottom: 2px solid #e9ecef;
+    /* Defined separation from data */
+}
+
+/* Optional: Add a slight rounded corner to the top of the table */
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #e9ecef;
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <title>Tasks</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+  <body>
+    <h1>All Tasks</h1>
+    <button class="add-btn"><a href="/create_task">+ Add Task</a></button>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Status</th>
+          <th>Due Date</th>
+          <th>Created At</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for task in tasks %}
+          <tr>
+            <td>{{ task.id }}</td>
+            <td class="task-title">{{ task.title }}</td>
+            <td>{{ task.description }}</td>
+            <td>
+              <!-- Using a dynamic class based on status -->
+              <span class="status-badge {{ task.status.value.lower().replace(' ', '_') }}">{{ task.status.value }}</span>
+            </td>
+            <td>{{ task.due_date }}</td>
+            <td>{{ task.friendly_time }}</td>
+            <td>
+              <!-- Edit: Just a link to the update page (GET request) -->
+              <a href="{{ url_for('update_task', id=task.id) }}" class="edit-btn">Edit</a>
+
+              <!-- Delete: A form (POST request) for security -->
+              <form action="{{ url_for('delete_task', id=task.id) }}" method="POST" style="display:inline; box-shadow: none; padding: 0; background: none;">
+                <button type="submit" class="delete-btn" onclick="return confirm('Delete this task?')">Delete</button>
+              </form>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>
