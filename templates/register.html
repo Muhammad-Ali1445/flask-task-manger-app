@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <title>Register form</title>
+  <body>
+    <h1>Register Form</h1>
+    <form action="/register" method="POST">
+      <label for="name">UserName:</label>
+      <input type="text" name="username" id="username" required />
+
+      <label for="name">Email:</label>
+      <input type="text" name="email" id="email" required />
+
+      <label for="password">Password:</label>
+      <input type="password" name="password" id="password" required />
+      <button type="submit">Register</button>
+    </form>
+    <p>
+      Already have account?
+      <a href="/login">Login</a>
+    </p>
+  </body>
+</html>
