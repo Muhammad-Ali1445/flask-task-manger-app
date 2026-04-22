@@ -1,4 +1,6 @@
 import enum
+import os
+from dotenv import load_dotenv
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from datetime import datetime, date
@@ -8,14 +10,13 @@ from flask_login import login_user, current_user, login_required, logout_user
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask import Flask, request, jsonify, render_template, redirect, url_for, flash
 
+load_dotenv()
+
 app = Flask(__name__)
 
-app.config["SQLALCHEMY_DATABASE_URI"] = (
-    "postgresql://postgres:123456@localhost:5432/flask_task_db"
-)
+app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
+app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL")
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-
-app.config["SECRET_KEY"] = "123456"
 
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
@@ -127,12 +128,6 @@ def logout():
 # ----------- Tasks ------------
 
 
-# @app.route("/task/<int:id>", methods=["GET"])
-# def get_single_task(id):
-#     task = Task.query.get_or_404(id)
-#     return render_template("index.html", tasks=[task])
-
-
 @app.route("/task/<int:id>", methods=["GET"])
 @login_required
 def get_single_task(id):
@@ -141,6 +136,8 @@ def get_single_task(id):
 
 
 # -- tasks of logged in user
+
+
 @app.route("/tasks", methods=["GET"])
 @login_required
 def get_all_tasks():
